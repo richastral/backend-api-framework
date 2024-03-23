@@ -4,11 +4,15 @@
 require('dotenv').config();
 const app = require('./app')
 const http = require("http");
+const ConnectDatabase = require('./database/database');
+
+//connecting to database
+ConnectDatabase()
 
 process.on('uncaughtException', (err) => {
     // TODO: Remove shutdown and provider error
     console.log(`Error: ${err.message}`)
-    console.log('Shutting down the server due to uncaught exception')
+    // console.log('Shutting down the server due to uncaught exception')
     process.exit(1)
 })
 

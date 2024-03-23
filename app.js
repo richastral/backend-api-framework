@@ -18,3 +18,11 @@ app.use(cors({
     origin: corsURLs
 }));
 
+const test = require('./routes/test.route');
+app.use('/api', test);
+
+const user = require('./routes/user.route');
+app.use('/api', user);
+
+
+module.exports = app;
